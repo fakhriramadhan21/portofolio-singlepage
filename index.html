@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fakhri Ramadhan | Software Engineer & Project Manager</title>
-    <meta name="description" content="Professional portfolio of Fakhri Ramadhan, Software Engineer & Project Manager specialized in Fullstack Web Development, IoT, and Gov-Tech solutions.">
-    
+    <meta name="description"
+        content="Professional portfolio of Fakhri Ramadhan, Software Engineer & Project Manager specialized in Fullstack Web Development, IoT, and Gov-Tech solutions.">
+
     <!-- Meta Tags & OpenGraph -->
     <meta property="og:title" content="Fakhri Ramadhan | Software Engineer & Project Manager">
-    <meta property="og:description" content="Check out my professional portfolio featuring projects in Sustainability, Sports Tech, and Gov-Tech.">
+    <meta property="og:description"
+        content="Check out my professional portfolio featuring projects in Sustainability, Sports Tech, and Gov-Tech.">
     <meta property="og:image" content="images/dasi.webp">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,8 +24,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --sapphire: #0f52ba;
@@ -30,38 +35,50 @@
             --slate-900: #0f172a;
             --slate-800: #1e293b;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #334155;
             overflow-x: hidden;
         }
-        h1, h2, h3, .font-outfit {
+
+        h1,
+        h2,
+        h3,
+        .font-outfit {
             font-family: 'Outfit', sans-serif;
         }
+
         .font-mono {
             font-family: 'Fira Code', monospace;
         }
+
         .text-gradient {
             background: linear-gradient(135deg, var(--sapphire) 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .bg-gradient-sapphire {
             background: linear-gradient(135deg, var(--sapphire) 0%, var(--sapphire-dark) 100%);
         }
+
         .glass {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
         .card-shadow {
             box-shadow: 0 10px 30px -10px rgba(15, 82, 186, 0.1);
         }
+
         .card-shadow:hover {
             box-shadow: 0 20px 40px -15px rgba(15, 82, 186, 0.2);
         }
+
         .blob {
             position: absolute;
             width: 500px;
@@ -70,29 +87,46 @@
             border-radius: 50%;
             z-index: -1;
         }
+
         .section-fade {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .section-fade.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .skill-tag {
             background: #f1f5f9;
             transition: all 0.3s ease;
         }
+
         .skill-tag:hover {
             background: var(--sapphire);
             color: white;
             transform: translateY(-2px);
         }
+
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -116,6 +150,7 @@
         }
     </script>
 </head>
+
 <body class="antialiased selection:bg-sapphire/20 selection:text-sapphire">
 
     <!-- Decorative Background -->
@@ -131,32 +166,39 @@
             <div class="hidden md:flex space-x-10 text-sm font-semibold text-slate-600">
                 <a href="#about" class="hover:text-sapphire transition-colors relative group">
                     About
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
                 </a>
                 <a href="#experience" class="hover:text-sapphire transition-colors relative group">
                     Experience
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
                 </a>
                 <a href="#projects" class="hover:text-sapphire transition-colors relative group">
                     Projects
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
                 </a>
                 <a href="#skills" class="hover:text-sapphire transition-colors relative group">
                     Skills
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
                 </a>
             </div>
-            <a href="#contact" class="hidden md:block px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">
+            <a href="#contact"
+                class="hidden md:block px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">
                 Let's Talk
             </a>
             <button class="md:hidden text-slate-900" id="mobile-menu-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-100 p-8 space-y-6 shadow-2xl">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-100 p-8 space-y-6 shadow-2xl">
             <a href="#about" class="block text-xl font-bold text-slate-800">About</a>
             <a href="#experience" class="block text-xl font-bold text-slate-800">Experience</a>
             <a href="#projects" class="block text-xl font-bold text-slate-800">Projects</a>
@@ -169,9 +211,11 @@
     <section id="about" class="pt-48 pb-32 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="flex-1 text-center md:text-left">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sapphire/5 text-sapphire font-mono text-xs font-bold mb-6 border border-sapphire/10">
+                <div
+                    class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sapphire/5 text-sapphire font-mono text-xs font-bold mb-6 border border-sapphire/10">
                     <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sapphire opacity-75"></span>
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sapphire opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-sapphire"></span>
                     </span>
                     <span>AVAILABLE FOR NEW PROJECTS</span>
@@ -181,19 +225,25 @@
                 </h1>
                 <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl" id="hero-about"></p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#projects" class="px-8 py-4 bg-gradient-sapphire text-white rounded-2xl font-bold shadow-2xl shadow-sapphire/30 hover:scale-105 transition-all text-center">
+                    <a href="#projects"
+                        class="px-8 py-4 bg-gradient-sapphire text-white rounded-2xl font-bold shadow-2xl shadow-sapphire/30 hover:scale-105 transition-all text-center">
                         Explore My Work
                     </a>
-                    <a href="#contact" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all text-center">
+                    <a href="#contact"
+                        class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all text-center">
                         Contact Me
                     </a>
                 </div>
-            <div id="socials-hero" class="mt-12 flex items-center justify-center md:justify-start space-x-6">
-                <a href="#" id="linkedin-hero" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-slate-100 text-slate-400 hover:text-sapphire hover:border-sapphire/20 transition-all card-shadow">
-                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <div class="h-8 w-px bg-slate-200"></div>
-                <div class="text-center md:text-left border-r border-slate-200 pr-8">
+                <div id="socials-hero" class="mt-12 flex items-center justify-center md:justify-start space-x-6">
+                    <a href="#" id="linkedin-hero" target="_blank"
+                        class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-slate-100 text-slate-400 hover:text-sapphire hover:border-sapphire/20 transition-all card-shadow">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div class="text-center md:text-left border-r border-slate-200 pr-8">
                         <div class="text-3xl font-bold text-slate-900">4+</div>
                         <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Years Experience</div>
                     </div>
@@ -204,8 +254,11 @@
                 </div>
             </div>
             <div class="flex-shrink-0 relative">
-                <div class="absolute -inset-4 bg-gradient-to-tr from-sapphire to-blue-400 rounded-[3rem] blur-2xl opacity-20 animate-pulse"></div>
-                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-700">
+                <div
+                    class="absolute -inset-4 bg-gradient-to-tr from-sapphire to-blue-400 rounded-[3rem] blur-2xl opacity-20 animate-pulse">
+                </div>
+                <div
+                    class="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-700">
                     <img id="profile-img" src="" alt="Fakhri Ramadhan" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -217,7 +270,9 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Core Competencies</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-white bg-slate-900 inline-block px-4 py-2 skew-x-[-4deg]">My Tech Stack</h3>
+                <h3
+                    class="text-4xl md:text-5xl font-extrabold text-white bg-slate-900 inline-block px-4 py-2 skew-x-[-4deg]">
+                    My Tech Stack</h3>
             </div>
             <div id="skills-container" class="grid md:grid-cols-3 gap-12">
                 <!-- Data will be injected here -->
@@ -301,22 +356,27 @@
 
     <!-- Contact Section -->
     <section id="contact" class="pb-32 px-6 px-6">
-        <div class="max-w-7xl mx-auto bg-gradient-sapphire rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden text-white">
+        <div
+            class="max-w-7xl mx-auto bg-gradient-sapphire rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden text-white">
             <div class="relative z-10">
                 <h2 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter">Have a project in mind?</h2>
-                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Let's build something amazing together. Reach out anytime, I'm usually around!</p>
+                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Let's build something amazing together. Reach
+                    out anytime, I'm usually around!</p>
                 <div class="flex flex-wrap justify-center gap-6 mb-16">
                     <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
-                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Email</div>
+                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Email
+                        </div>
                         <div class="text-xl font-bold font-mono" id="contact-email"></div>
                     </div>
                     <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
-                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Phone</div>
+                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Phone
+                        </div>
                         <div class="text-xl font-bold font-mono" id="contact-phone"></div>
                     </div>
                 </div>
                 <div class="flex justify-center flex-wrap gap-4">
-                    <a href="mailto:fakhriramadhan21.work@gmail.com" class="px-10 py-5 bg-white text-sapphire rounded-2xl font-black text-lg hover:scale-105 transition-all">
+                    <a href="mailto:fakhriramadhan21.work@gmail.com"
+                        class="px-10 py-5 bg-white text-sapphire rounded-2xl font-black text-lg hover:scale-105 transition-all">
                         SEND AN EMAIL
                     </a>
                 </div>
@@ -331,9 +391,23 @@
     </section>
 
     <!-- Floating WhatsApp Button -->
-    <a href="#" id="whatsapp-btn" target="_blank" class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
-        <svg class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412 0 6.556-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.55.932 3.313 1.42 5.111 1.421 5.398 0 9.791-4.393 9.793-9.791 0-2.613-1.018-5.069-2.866-6.918-1.848-1.848-4.304-2.865-6.916-2.865-5.397 0-9.79 4.392-9.793 9.791-.001 1.902.531 3.748 1.54 5.334l-1.015 3.704 3.791-.994zM16.57 13.245c-.443-.221-2.613-1.288-3.02-1.435-.407-.147-.702-.221-.995.221s-1.144 1.436-1.402 1.731-.518.332-.962.11c-.443-.221-1.87-.69-3.562-2.201-1.316-1.173-2.204-2.62-2.463-3.063-.258-.443-.028-.683.194-.904.2-.198.444-.516.666-.774.221-.258.295-.443.443-.738s.074-.553-.037-.775c-.11-.221-.995-2.398-1.365-3.295-.36-.87-.723-.751-.995-.765-.259-.013-.554-.015-.85-.015s-.776.111-1.182.553c-.406.443-1.55 1.514-1.55 3.692 0 2.178 1.587 4.282 1.81 4.577s3.12 4.766 7.55 6.678c1.054.455 1.877.727 2.517.931 1.058.336 2.02.288 2.783.174.851-.127 2.613-1.07 2.983-2.104.369-1.033.369-1.92.259-2.103-.111-.184-.407-.295-.85-.516z"/></svg>
-    </a>
+    <div class="fixed bottom-8 right-8 z-[100] flex items-center group">
+        <span
+            class="mr-4 px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shadow-xl">
+            Chat with me
+        </span>
+        <a href="#" id="whatsapp-btn" target="_blank"
+            class="relative w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300">
+            <!-- Pulse Animation -->
+            <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"></span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="w-9 h-9 fill-white bi bi-whatsapp relative z-10" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+            </svg>
+        </a>
+    </div>
 
     <!-- Load Portfolio Data -->
     <script src="data.js"></script>
@@ -344,7 +418,7 @@
             document.getElementById('profile-img').src = data.personal.avatar;
             document.getElementById('contact-email').textContent = data.personal.email;
             document.getElementById('contact-phone').textContent = data.personal.phone;
-            
+
             // Social Links
             document.getElementById('linkedin-hero').href = data.personal.linkedin;
             document.getElementById('whatsapp-btn').href = `https://wa.me/${data.personal.whatsapp}`;
@@ -369,7 +443,7 @@
 
             // Projects - Dark Card Style
             const projectsList = document.getElementById('projects-list');
-            
+
             // Sort: Featured first, and Taekwondo (id: 112) at the very top of featured
             const sortedProjects = [...data.projects].sort((a, b) => {
                 if (a.id === 112) return -1;
@@ -380,11 +454,11 @@
             });
 
             sortedProjects.forEach(project => {
-                const tags = project.tags.map(tag => 
+                const tags = project.tags.map(tag =>
                     `<span class="text-[10px] font-bold px-2 py-0.5 bg-white/10 rounded-md border border-white/5 mr-2 mb-2 inline-block">${tag}</span>`
                 ).join('');
 
-                const featuredBadge = project.featured ? 
+                const featuredBadge = project.featured ?
                     `<span class="absolute top-6 left-6 z-20 px-3 py-1 bg-sapphire text-[10px] font-black tracking-widest text-white rounded-lg shadow-lg">FEATURED</span>` : '';
 
                 const item = `
@@ -408,7 +482,7 @@
                 `;
                 projectsList.insertAdjacentHTML('beforeend', item);
             });
-            
+
             // Education
             const eduList = document.getElementById('education-list');
             data.education.forEach(edu => {
@@ -441,10 +515,10 @@
             // Skills - Categorized
             const skillsContainer = document.getElementById('skills-container');
             const renderSkillGroup = (title, items) => {
-                const tags = items.map(skill => 
+                const tags = items.map(skill =>
                     `<span class="skill-tag px-4 py-2 rounded-xl text-slate-700 text-sm font-bold border border-slate-200 cursor-default block mb-2">${skill}</span>`
                 ).join('');
-                
+
                 return `
                     <div class="space-y-6">
                         <h4 class="text-lg font-black text-slate-900 border-b-2 border-sapphire/20 pb-2 flex items-center">
@@ -456,7 +530,7 @@
                 `;
             };
 
-            skillsContainer.innerHTML = 
+            skillsContainer.innerHTML =
                 renderSkillGroup('Technical Stack', data.skills.technical) +
                 renderSkillGroup('Management & Consulting', data.skills.management_consulting) +
                 renderSkillGroup('Soft Skills', data.skills.soft_skills);
@@ -532,4 +606,5 @@
         });
     </script>
 </body>
+
 </html>
