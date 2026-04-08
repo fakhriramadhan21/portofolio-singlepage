@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakhri Ramadhan | Software Engineer</title>
+    <meta name="description" content="Portfolio of Fakhri Ramadhan, Software Engineer specialized in Fullstack Web Development.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sapphire: #0f52ba;
+            --sapphire-dark: #0a3d8b;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #334155;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--sapphire) 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-sapphire {
+            background: linear-gradient(135deg, var(--sapphire) 0%, var(--sapphire-dark) 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(15, 82, 186, 0.1);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px -15px rgba(15, 82, 186, 0.2);
+        }
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(15, 82, 186, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-tag {
+            background: #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: var(--sapphire);
+            color: white;
+            transform: translateY(-2px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sapphire: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            DEFAULT: '#0f52ba',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-sapphire/20 selection:text-sapphire">
+
+    <!-- Decorative Background -->
+    <div class="blob -top-48 -left-48"></div>
+    <div class="blob top-1/2 -right-48"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-slate-900 tracking-tighter">
+                FAKHRI<span class="text-sapphire">.</span>DEV
+            </a>
+            <div class="hidden md:flex space-x-10 text-sm font-semibold text-slate-600">
+                <a href="#about" class="hover:text-sapphire transition-colors relative group">
+                    About
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experience" class="hover:text-sapphire transition-colors relative group">
+                    Experience
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="hover:text-sapphire transition-colors relative group">
+                    Projects
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#skills" class="hover:text-sapphire transition-colors relative group">
+                    Skills
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sapphire transition-all group-hover:w-full"></span>
+                </a>
+            </div>
+            <a href="#contact" class="hidden md:block px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">
+                Let's Talk
+            </a>
+            <button class="md:hidden text-slate-900" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-100 p-8 space-y-6 shadow-2xl">
+            <a href="#about" class="block text-xl font-bold text-slate-800">About</a>
+            <a href="#experience" class="block text-xl font-bold text-slate-800">Experience</a>
+            <a href="#projects" class="block text-xl font-bold text-slate-800">Projects</a>
+            <a href="#skills" class="block text-xl font-bold text-slate-800">Skills</a>
+            <a href="#contact" class="block text-xl font-bold text-sapphire">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-48 pb-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="flex-1 text-center md:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sapphire/5 text-sapphire font-mono text-xs font-bold mb-6 border border-sapphire/10">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sapphire opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-sapphire"></span>
+                    </span>
+                    <span>AVAILABLE FOR NEW PROJECTS</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
+                    Solving <span class="text-gradient">Problems</span> Through Code.
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl" id="hero-about"></p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-gradient-sapphire text-white rounded-2xl font-bold shadow-2xl shadow-sapphire/30 hover:scale-105 transition-all text-center">
+                        Explore My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all text-center">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="mt-12 flex items-center justify-center md:justify-start space-x-8">
+                    <div class="text-center md:text-left border-r border-slate-200 pr-8">
+                        <div class="text-3xl font-bold text-slate-900">4+</div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Years Experience</div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-3xl font-bold text-slate-900">10+</div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Projects Done</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 relative">
+                <div class="absolute -inset-4 bg-gradient-to-tr from-sapphire to-blue-400 rounded-[3rem] blur-2xl opacity-20 animate-pulse"></div>
+                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-700">
+                    <img id="profile-img" src="" alt="Fakhri Ramadhan" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack / Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Core Competencies</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-white bg-slate-900 inline-block px-4 py-2 skew-x-[-4deg]">My Tech Stack</h3>
+            </div>
+            <div id="skills-list" class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-end justify-between mb-20">
+                <div>
+                    <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Journey</h2>
+                    <h3 class="text-4xl md:text-6xl font-extrabold text-slate-900">Work History</h3>
+                </div>
+                <div class="hidden md:block text-slate-300 font-outfit text-7xl font-black">EXP.</div>
+            </div>
+            <div class="space-y-4" id="experience-list">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 bg-slate-900 text-white overflow-hidden relative">
+        <div class="blob -top-48 -right-48 opacity-20"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-20">
+                <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Portfolio</h2>
+                <h3 class="text-4xl md:text-6xl font-extrabold">Featured Projects</h3>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-list">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+            <div class="p-12 bg-slate-50 rounded-[3rem]">
+                <h3 class="text-3xl font-extrabold text-slate-900 mb-12 flex items-center">
+                    <span class="w-12 h-1 bg-sapphire mr-6 rounded-full"></span> Education
+                </h3>
+                <div id="education-list" class="space-y-12"></div>
+            </div>
+            <div class="p-12">
+                <h3 class="text-3xl font-extrabold text-slate-900 mb-12 flex items-center">
+                    <span class="w-12 h-1 bg-sapphire mr-6 rounded-full"></span> Achievements
+                </h3>
+                <ul id="achievements-list" class="space-y-6"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="pb-32 px-6 px-6">
+        <div class="max-w-7xl mx-auto bg-gradient-sapphire rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden text-white">
+            <div class="relative z-10">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter">Have a project in mind?</h2>
+                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Let's build something amazing together. Reach out anytime, I'm usually around!</p>
+                <div class="flex flex-wrap justify-center gap-6 mb-16">
+                    <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Email</div>
+                        <div class="text-xl font-bold font-mono" id="contact-email"></div>
+                    </div>
+                    <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                        <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Phone</div>
+                        <div class="text-xl font-bold font-mono" id="contact-phone"></div>
+                    </div>
+                </div>
+                <div class="flex justify-center flex-wrap gap-4">
+                    <a href="mailto:fakhriramadhan21.work@gmail.com" class="px-10 py-5 bg-white text-sapphire rounded-2xl font-black text-lg hover:scale-105 transition-all">
+                        SEND AN EMAIL
+                    </a>
+                </div>
+            </div>
+            <!-- Decorative circle -->
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full"></div>
+            <div class="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full"></div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 text-center text-slate-400 text-sm font-bold tracking-widest uppercase">
+            © 2026 FAKHRI RAMADHAN — BUILT WITH PASSION & TAILWIND
+        </div>
+    </section>
+
+    <!-- Load Portfolio Data -->
+    <script src="data.js"></script>
+
+    <script>
+        const renderData = (data) => {
+            document.getElementById('hero-about').textContent = data.personal.about;
+            document.getElementById('profile-img').src = data.personal.avatar;
+            document.getElementById('contact-email').textContent = data.personal.email;
+            document.getElementById('contact-phone').textContent = data.personal.phone;
+
+            // Experience - Modern Timeline Style
+            const expList = document.getElementById('experience-list');
+            data.experience.forEach(exp => {
+                const item = `
+                    <div class="group flex flex-col md:flex-row gap-6 p-10 rounded-[2.5rem] bg-white border border-slate-100 hover:border-sapphire/20 card-shadow transition-all duration-500">
+                        <div class="md:w-1/4">
+                            <span class="text-sm font-black text-sapphire bg-sapphire/10 px-4 py-2 rounded-xl mb-4 inline-block font-mono tracking-tighter">${exp.date}</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-extrabold text-slate-900 mb-2 group-hover:text-sapphire transition-colors">${exp.position}</h3>
+                            <h4 class="text-lg text-slate-500 font-bold mb-6">${exp.company} <span class="text-slate-300 mx-2">/</span> ${exp.location}</h4>
+                            <p class="text-slate-600 leading-relaxed max-w-3xl">${exp.description}</p>
+                        </div>
+                    </div>
+                `;
+                expList.insertAdjacentHTML('beforeend', item);
+            });
+
+            // Projects - Dark Card Style
+            const projectsList = document.getElementById('projects-list');
+            data.projects.forEach(project => {
+                const tags = project.tags.map(tag => 
+                    `<span class="text-[10px] font-bold px-2 py-0.5 bg-white/10 rounded-md border border-white/5 mr-2 mb-2 inline-block">${tag}</span>`
+                ).join('');
+
+                const item = `
+                    <div class="group relative bg-slate-800/50 border border-white/10 rounded-[2.5rem] overflow-hidden hover:border-sapphire/50 transition-all duration-500">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="${project.image}" alt="${project.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+                        </div>
+                        <div class="p-10">
+                            <div class="flex flex-wrap mb-2">${tags}</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 line-clamp-1">${project.name}</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">${project.description}</p>
+                            <a href="${project.url}" target="_blank" class="inline-flex items-center text-sm font-black text-white group-hover:text-sapphire transition-colors">
+                                VIEW PROJECT 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                projectsList.insertAdjacentHTML('beforeend', item);
+            });
+
+            // Education
+            const eduList = document.getElementById('education-list');
+            data.education.forEach(edu => {
+                const item = `
+                    <div class="relative pl-10 border-l-4 border-sapphire/20">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">${edu.institution}</h3>
+                        <p class="text-sapphire font-black uppercase text-xs tracking-widest mb-4">${edu.degree}</p>
+                        <p class="text-sm text-slate-400 mb-4 font-mono">${edu.date}</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">${edu.details}</p>
+                    </div>
+                `;
+                eduList.insertAdjacentHTML('beforeend', item);
+            });
+
+            // Achievements
+            const achList = document.getElementById('achievements-list');
+            data.achievements.forEach(ach => {
+                achList.insertAdjacentHTML('beforeend', `
+                    <li class="flex items-start p-6 bg-slate-50 rounded-3xl border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-10 h-10 bg-sapphire/10 rounded-2xl flex items-center justify-center mr-6 shrink-0">
+                            <svg class="h-5 w-5 text-sapphire" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <span class="text-slate-700 text-lg font-bold leading-tight">${ach}</span>
+                    </li>
+                `);
+            });
+
+            // Skills - Interactive Tag Style
+            const skillsList = document.getElementById('skills-list');
+            data.skills.forEach(skill => {
+                skillsList.insertAdjacentHTML('beforeend', `
+                    <span class="skill-tag px-8 py-4 rounded-2xl text-slate-700 text-base font-black tracking-tight border border-slate-200 cursor-default">
+                        ${skill}
+                    </span>
+                `);
+            });
+        };
+
+        if (typeof portfolioData !== 'undefined') {
+            renderData(portfolioData);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('section-fade');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
