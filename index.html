@@ -36,11 +36,13 @@
             --slate-800: #1e293b;
         }
 
-        body {
+        body, html {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #334155;
-            overflow-x: hidden;
+            overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
         }
 
         h1,
@@ -86,6 +88,7 @@
             background: radial-gradient(circle, rgba(15, 82, 186, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
             z-index: -1;
+            pointer-events: none;
         }
 
         .section-fade {
@@ -95,8 +98,14 @@
         }
 
         .section-fade.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Fallback for users with no JS or if animations fail to trigger */
+        .no-js .section-fade {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
 
         .skill-tag {
@@ -158,8 +167,8 @@
     <div class="blob top-1/2 -right-48"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <nav class="fixed top-0 left-0 w-full z-50 glass border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
             <a href="#" class="text-2xl font-bold text-slate-900 tracking-tighter">
                 FAKHRI<span class="text-sapphire">.</span>DEV
             </a>
@@ -208,8 +217,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="pt-48 pb-32 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+    <section id="about" class="pt-32 md:pt-48 pb-20 md:pb-32 px-4 md:px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
             <div class="flex-1 text-center md:text-left">
                 <div
                     class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sapphire/5 text-sapphire font-mono text-xs font-bold mb-6 border border-sapphire/10">
@@ -220,7 +229,7 @@
                     </span>
                     <span>AVAILABLE FOR NEW PROJECTS</span>
                 </div>
-                <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
+                <h1 class="text-4xl sm:text-5xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
                     Solving <span class="text-gradient">Problems</span> Through Code.
                 </h1>
                 <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl" id="hero-about"></p>
@@ -258,7 +267,7 @@
                     class="absolute -inset-4 bg-gradient-to-tr from-sapphire to-blue-400 rounded-[3rem] blur-2xl opacity-20 animate-pulse">
                 </div>
                 <div
-                    class="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-700">
+                    class="relative w-64 h-64 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl md:skew-y-3 hover:skew-y-0 transition-transform duration-700">
                     <img id="profile-img" src="" alt="Fakhri Ramadhan" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -266,7 +275,7 @@
     </section>
 
     <!-- Tech Stack / Skills Section -->
-    <section id="skills" class="py-24 px-6 bg-slate-50">
+    <section id="skills" class="py-20 md:py-32 px-4 md:px-6 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Core Competencies</h2>
@@ -297,14 +306,14 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-32 px-6 bg-slate-900 text-white overflow-hidden relative">
+    <section id="projects" class="py-20 md:py-32 px-4 md:px-6 bg-slate-900 text-white overflow-hidden relative z-20">
         <div class="blob -top-48 -right-48 opacity-20"></div>
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="mb-20">
                 <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Portfolio</h2>
                 <h3 class="text-4xl md:text-6xl font-extrabold">Featured Projects</h3>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-list">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 min-h-[400px]" id="projects-list">
                 <!-- Data will be injected here -->
             </div>
         </div>
@@ -355,23 +364,23 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="pb-32 px-6 px-6">
+    <section id="contact" class="pb-20 md:pb-32 px-4 md:px-6">
         <div
-            class="max-w-7xl mx-auto bg-gradient-sapphire rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden text-white">
+            class="max-w-7xl mx-auto bg-gradient-sapphire rounded-[3rem] md:rounded-[4rem] p-8 md:p-24 text-center relative overflow-hidden text-white">
             <div class="relative z-10">
-                <h2 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter">Have a project in mind?</h2>
-                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Let's build something amazing together. Reach
+                <h2 class="text-4xl md:text-7xl font-extrabold mb-8 tracking-tighter">Have a project in mind?</h2>
+                <p class="text-lg md:text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Let's build something amazing together. Reach
                     out anytime, I'm usually around!</p>
-                <div class="flex flex-wrap justify-center gap-6 mb-16">
-                    <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
+                    <div class="px-6 md:px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 grow sm:grow-0">
                         <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Email
                         </div>
-                        <div class="text-xl font-bold font-mono" id="contact-email"></div>
+                        <div class="text-lg md:text-xl font-bold font-mono" id="contact-email"></div>
                     </div>
-                    <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                    <div class="px-6 md:px-8 py-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 grow sm:grow-0">
                         <div class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1 text-left">Phone
                         </div>
-                        <div class="text-xl font-bold font-mono" id="contact-phone"></div>
+                        <div class="text-lg md:text-xl font-bold font-mono" id="contact-phone"></div>
                     </div>
                 </div>
                 <div class="flex justify-center flex-wrap gap-4">
@@ -467,9 +476,9 @@
                         <div class="aspect-video overflow-hidden">
                             <img src="${project.image}" alt="${project.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
                         </div>
-                        <div class="p-10">
+                        <div class="p-6 md:p-10">
                             <div class="flex flex-wrap mb-2">${tags}</div>
-                            <h3 class="text-2xl font-bold text-white mb-4 line-clamp-1">${project.name}</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4 line-clamp-1">${project.name}</h3>
                             <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">${project.description}</p>
                             <a href="${project.url}" target="_blank" class="inline-flex items-center text-sm font-black text-white group-hover:text-sapphire transition-colors">
                                 VIEW PROJECT 
@@ -591,14 +600,16 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Intersection Observer
+        // Intersection Observer for cleaner experience and to ensure visibility
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Once visible, we can unobserve
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.05 }); // High sensitivity for better visibility
 
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('section-fade');
