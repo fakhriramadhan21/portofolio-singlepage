@@ -5,7 +5,8 @@ const portfolioData = {
     "email": "fakhriramadhan21.work@gmail.com",
     "phone": "+6282148822149",
     "location": "Pontianak, Indonesia",
-    "linkedin": "linkedin.com/in/fakhri-ramadhan-022754147",
+    "linkedin": "https://www.linkedin.com/in/fakhri-ramadhan-022754147",
+    "whatsapp": "6282148822149",
     "about": "Highly competent IT professional with a proven track record in web development. Possesses strong technical skills and excellent interpersonal abilities, enabling effective interaction with a wide range of clients. Eager to face new challenges to grow and further improve IT skills. Passionate about using technical know-how to benefit people and organizations.",
     "avatar": "images/dasi.webp"
   },
