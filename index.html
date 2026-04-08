@@ -204,7 +204,7 @@
                 <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Core Competencies</h2>
                 <h3 class="text-4xl md:text-5xl font-extrabold text-white bg-slate-900 inline-block px-4 py-2 skew-x-[-4deg]">My Tech Stack</h3>
             </div>
-            <div id="skills-list" class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <div id="skills-container" class="grid md:grid-cols-3 gap-12">
                 <!-- Data will be injected here -->
             </div>
         </div>
@@ -254,6 +254,32 @@
                     <span class="w-12 h-1 bg-sapphire mr-6 rounded-full"></span> Achievements
                 </h3>
                 <ul id="achievements-list" class="space-y-6"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communities Section -->
+    <section id="communities" class="py-32 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Network</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900">Communities I Follow</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="communities-list">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-32 px-6 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-sapphire uppercase tracking-[0.3em] mb-4">Credentials</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900">Professional Certifications</h3>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="certificates-list">
+                <!-- Data will be injected here -->
             </div>
         </div>
     </section>
@@ -319,13 +345,27 @@
 
             // Projects - Dark Card Style
             const projectsList = document.getElementById('projects-list');
-            data.projects.forEach(project => {
+            
+            // Sort: Featured first, and Taekwondo (id: 112) at the very top of featured
+            const sortedProjects = [...data.projects].sort((a, b) => {
+                if (a.id === 112) return -1;
+                if (b.id === 112) return 1;
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return 0;
+            });
+
+            sortedProjects.forEach(project => {
                 const tags = project.tags.map(tag => 
                     `<span class="text-[10px] font-bold px-2 py-0.5 bg-white/10 rounded-md border border-white/5 mr-2 mb-2 inline-block">${tag}</span>`
                 ).join('');
 
+                const featuredBadge = project.featured ? 
+                    `<span class="absolute top-6 left-6 z-20 px-3 py-1 bg-sapphire text-[10px] font-black tracking-widest text-white rounded-lg shadow-lg">FEATURED</span>` : '';
+
                 const item = `
-                    <div class="group relative bg-slate-800/50 border border-white/10 rounded-[2.5rem] overflow-hidden hover:border-sapphire/50 transition-all duration-500">
+                    <div class="group relative bg-slate-800/50 border ${project.featured ? 'border-sapphire/30 shadow-[0_0_50px_-12px_rgba(15,82,186,0.2)]' : 'border-white/10'} rounded-[2.5rem] overflow-hidden hover:border-sapphire/50 transition-all duration-500">
+                        ${featuredBadge}
                         <div class="aspect-video overflow-hidden">
                             <img src="${project.image}" alt="${project.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
                         </div>
@@ -344,7 +384,7 @@
                 `;
                 projectsList.insertAdjacentHTML('beforeend', item);
             });
-
+            
             // Education
             const eduList = document.getElementById('education-list');
             data.education.forEach(edu => {
@@ -374,13 +414,70 @@
                 `);
             });
 
-            // Skills - Interactive Tag Style
-            const skillsList = document.getElementById('skills-list');
-            data.skills.forEach(skill => {
-                skillsList.insertAdjacentHTML('beforeend', `
-                    <span class="skill-tag px-8 py-4 rounded-2xl text-slate-700 text-base font-black tracking-tight border border-slate-200 cursor-default">
-                        ${skill}
-                    </span>
+            // Skills - Categorized
+            const skillsContainer = document.getElementById('skills-container');
+            const renderSkillGroup = (title, items) => {
+                const tags = items.map(skill => 
+                    `<span class="skill-tag px-4 py-2 rounded-xl text-slate-700 text-sm font-bold border border-slate-200 cursor-default block mb-2">${skill}</span>`
+                ).join('');
+                
+                return `
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-black text-slate-900 border-b-2 border-sapphire/20 pb-2 flex items-center">
+                             <span class="w-2 h-2 bg-sapphire rounded-full mr-2"></span>
+                             ${title}
+                        </h4>
+                        <div class="flex flex-col">${tags}</div>
+                    </div>
+                `;
+            };
+
+            skillsContainer.innerHTML = 
+                renderSkillGroup('Technical Stack', data.skills.technical) +
+                renderSkillGroup('Management & Consulting', data.skills.management_consulting) +
+                renderSkillGroup('Soft Skills', data.skills.soft_skills);
+
+            // Communities
+            const commList = document.getElementById('communities-list');
+            data.communities.forEach(comm => {
+                commList.insertAdjacentHTML('beforeend', `
+                    <a href="${comm.link}" target="_blank" class="group p-8 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-sapphire/20 transition-all hover:bg-white card-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-black text-slate-900 group-hover:text-sapphire transition-colors">${comm.name}</h4>
+                            <div class="text-sapphire opacity-0 group-hover:opacity-100 transition-opacity">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">${comm.role}</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">${comm.description}</p>
+                    </a>
+                `);
+            });
+
+            // Certificates
+            const certList = document.getElementById('certificates-list');
+            data.certificates.forEach(cert => {
+                certList.insertAdjacentHTML('beforeend', `
+                    <div class="group p-8 bg-white rounded-[2rem] border border-slate-100 hover:border-sapphire/20 transition-all card-shadow relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-sapphire/5 rounded-bl-full -mr-12 -mt-12 transition-all group-hover:bg-sapphire/10"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-sapphire/10 rounded-xl flex items-center justify-center mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sapphire" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900 mb-2 truncate" title="${cert.name}">${cert.name}</h4>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">${cert.issuer}</p>
+                            <a href="${cert.file}" target="_blank" class="inline-flex items-center text-sm font-black text-sapphire hover:text-blue-700 transition-colors">
+                                VIEW CREDENTIAL
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 `);
             });
         };
