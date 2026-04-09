@@ -249,9 +249,25 @@ const portfolioData = {
     "Outstanding Student, Faculty of Industrial Engineering, Telkom University, 2018."
   ],
   "languages": [
-    "Indonesia (Full Professional Proficiency)",
-    "English (Professional Working Proficiency)",
-    "Malay (Full Professional Proficiency)"
+    {
+      "name": "Indonesian",
+      "code": "ID",
+      "proficiency": "Native / Bilingual",
+      "note": ""
+    },
+    {
+      "name": "English",
+      "code": "EN",
+      "proficiency": "Professional Proficiency",
+      "certificate": "IELTS Prediction",
+      "file": "certificate/Fakhri+Ramadhan_ielts_9268492.pdf"
+    },
+    {
+      "name": "Malay",
+      "code": "MS",
+      "proficiency": "Native Proficiency",
+      "note": "Native Pontianak dialect"
+    }
   ],
   "communities": [
     {
